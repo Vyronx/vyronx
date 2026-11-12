@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyronx</title>
+    
+    <!-- Ícone do Navegador (Favicon) -->
+    <link rel="icon" type="image/png" href="https://d31zra5bs5df64.cloudfront.net/prod/3LdigBc0cwOYcFkrylcevqiN3OX/chat/3LxZrxAys7mai2tqGU80nDvFKEt/3LzF5tHLDpMQGYYsrmwruStp7Cr.png?Expires=1794452409&Key-Pair-Id=K2FT0I8VPJSP5H&Signature=ISmwTNXTNXRmnGu3ku1mpKob6djGJkcRRdZXyR77LbzA7tw~THRi383LB-H6Wxxkej7hZA262Z5N2uYY25dCHD8NlzFP14YD5uC8EwvCl52jF~6vAjr8nynUDMl63X3vcI0gjW~dNbt55SDWA-pVZhlcPMClFz0YpIISCKNg9r03hbrOSdZVRn3VrR2aNGZ5SUCMuUsWf14o1pcR9GrVnYaIQGkod8ajYz8z6TeYzF6lfVT6b6ZsMQA4jlrE7Xm-CvuN86q7Jm5fc6qiapO2l~hS7qYMgln2Y0I4pGAmCKYLBIa~baA1skALRRSsy9IFwJXESfnBUUK5z3lPVaOKQw__">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Animações CSS para simular os GIFs */
+        .float-slow {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .float-medium {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .float-fast {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .float-delayed {
+            animation: float 5s ease-in-out 2s infinite;
+        }
+
+        .pulse-soft {
+            animation: pulse-scale 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes pulse-scale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Cores baseadas no print */
+        .bg-blue-linktree { background-color: #2D5BFF; }
+        .text-yellow-linktree { color: #D2E823; }
+        .bg-yellow-linktree { background-color: #D2E823; }
+        
+        .bg-red-linktree { background-color: #780016; }
+        .text-pink-linktree { color: #EAA0D2; }
+        
+        .bg-green-linktree { background-color: #E3E8D5; }
+        .text-dark-linktree { color: #111827; }
+        .bg-purple-linktree { background-color: #ECAAE6; }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO / NAVBAR (Flutuante) -->
+    <header id="main-nav" class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 md:px-8 transition-transform duration-500 ease-in-out transform translate-y-0">
+        <div class="w-full max-w-7xl relative">
+            <!-- Pílula Principal -->
+            <div class="bg-white rounded-full w-full flex items-center justify-between px-4 md:px-6 py-2 md:py-3 shadow-[0_8px_30px_rgb(0,0,0,0.08)] relative z-20">
+                
+                <!-- Logo da Marca -->
+                <a href="#" class="flex-shrink-0 pl-2">
+                    <img src="https://d31zra5bs5df64.cloudfront.net/prod/3LdigBc0cwOYcFkrylcevqiN3OX/chat/3LxZrxAys7mai2tqGU80nDvFKEt/3LzIY4XXYbmbtqW4fjzByhEXNss.png?Expires=1794454113&Key-Pair-Id=K2FT0I8VPJSP5H&Signature=EHzn5HfJ0gNDEqLugbg1banjWm~XuD4~cQMU1fQ4vieYE8Iz2R15FH3j82SdnxAMmqFZIQfoQXVpUI-iD9YxJUTjGBwrtHxjmSrQym8WsQDx2dQctFoxqSiBLnjqwbjG4ol8yv1ol8Txjg09CqxIKJmCc7C5-qnlPu58i21n0HEH7wcRcmcstMEYuER8fPE2824YKD24nyM-k8pLSbeYNGx3JN0yycHs82cBE4AFqkgWhbUhrQwphZEZHZ1D12fTRFaeLMjFnILLQF1DtljwEtbcBLfMhLKUZ2tVv8K~PEetXrHtafG~uXdolkgJrcibXP52Vn81xgJ3SlMQNjbckA__" alt="Vyronx Logo" class="h-12 md:h-16 w-auto object-contain">
+                </a>
+
+                <!-- Menu Central com Animação Deslizante -->
+                <nav class="hidden lg:flex items-center relative p-1" id="nav-menu">
+                    <!-- Pílula cinza que desliza no fundo -->
+                    <div id="nav-indicator" class="absolute h-[calc(100%-8px)] bg-gray-100 rounded-full transition-all duration-300 ease-out opacity-0 z-0 pointer-events-none" style="left: 0; width: 0; top: 4px;"></div>
+                    
+                    <a href="#" id="solutions-link" class="nav-item relative z-10 px-5 py-2.5 text-gray-600 font-semibold hover:text-black transition-colors rounded-full">Solutions</a>
+                <a href="#" class="nav-item relative z-10 px-5 py-2.5 text-gray-600 font-semibold hover:text-black transition-colors rounded-full">Features</a>
+                <a href="#" class="nav-item relative z-10 px-5 py-2.5 text-gray-600 font-semibold hover:text-black transition-colors rounded-full">Integrations</a>
+                <a href="#" class="nav-item relative z-10 px-5 py-2.5 text-gray-600 font-semibold hover:text-black transition-colors rounded-full">Resources</a>
+                <a href="#" class="nav-item relative z-10 px-5 py-2.5 text-gray-600 font-semibold hover:text-black transition-colors rounded-full">Pricing</a>
+            </nav>
+
+            <!-- Botões de Ação -->
+            <div class="flex items-center gap-2 md:gap-4">
+                <a href="#" class="hidden md:block text-gray-600 font-semibold hover:text-black transition-colors px-4 py-2 hover:bg-gray-50 rounded-lg">Log in</a>
+                <a href="#" class="bg-[#1e2330] text-white font-semibold px-5 md:px-6 py-3 rounded-full hover:bg-gray-800 transition-colors">Sign up free</a>
+            </div>
+            </div>
+
+            <!-- MEGA MENU (Dropdown Solutions) -->
+            <div id="mega-menu" class="absolute top-full left-0 right-0 mt-2 bg-white rounded-[2rem] shadow-[0_20px_40px_rgb(0,0,0,0.1)] p-8 md:p-10 opacity-0 invisible transition-all duration-300 transform -translate-y-4 z-10 hidden lg:flex flex-col md:flex-row gap-12 pointer-events-none">
+                
+                <!-- Coluna Esquerda: LINKTREE FOR -->
+                <div class="w-full md:w-[30%] flex flex-col">
+                    <h3 class="text-[11px] font-bold text-gray-400 tracking-wider mb-6 uppercase">Linktree for</h3>
+                    <ul class="space-y-5 flex-1">
+                        <li><a href="#" class="flex items-center gap-4 text-gray-800 hover:text-gray-500 font-medium transition-colors">
+                            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+                            Musicians
+                        </a></li>
+                        <li><a href="#" class="flex items-center gap-4 text-gray-800 hover:text-gray-500 font-medium transition-colors">
+                            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            YouTubers
+                        </a></li>
+                        <li><a href="#" class="flex items-center gap-4 text-gray-800 hover:text-gray-500 font-medium transition-colors">
+                            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                            Podcasters
+                        </a></li>
+                        <li><a href="#" class="flex items-center gap-4 text-gray-800 hover:text-gray-500 font-medium transition-colors">
+                            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                            Creators
+                        </a></li>
+                        <li><a href="#" class="flex items-center gap-4 text-gray-800 hover:text-gray-500 font-medium transition-colors">
+                            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                            Real Estate Agents
+                        </a></li>
+                        <li><a href="#" class="flex items-center gap-4 text-gray-800 hover:text-gray-500 font-medium transition-colors">
+                            <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            Agencies
+                        </a></li>
+                    </ul>
+                    <a href="#" class="text-sm font-semibold text-gray-400 hover:text-gray-700 mt-6 flex items-center gap-1 transition-colors">See all <span>&rarr;</span></a>
+                </div>
+
+                <!-- Coluna Direita: WHAT YOU CAN DO -->
+                <div class="w-full md:w-[70%] flex flex-col">
+                    <h3 class="text-[11px] font-bold text-gray-400 tracking-wider mb-6 uppercase">What you can do</h3>
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-x-8 gap-y-10 flex-1">
+                        
+                        <!-- Card 1 -->
+                        <a href="#" class="group flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-xl bg-[#E3E8D5] text-[#2c3321] flex items-center justify-center flex-shrink-0 group-hover:bg-[#d5dbc3] transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900 mb-1">Grow your audience</h4>
+                                <p class="text-[13px] text-gray-500 leading-relaxed pr-4">Reach more people across every platform, and show brands the audience you've actually built.</p>
+                            </div>
+                        </a>
+
+                        <!-- Card 2 -->
+                        <a href="#" class="group flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-xl bg-[#E3E8D5] text-[#2c3321] flex items-center justify-center flex-shrink-0 group-hover:bg-[#d5dbc3] transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900 mb-1">Earn from recommendations</h4>
+                                <p class="text-[13px] text-gray-500 leading-relaxed pr-4">Make money from affiliate links and sponsorships, and see exactly which post drove the click.</p>
+                            </div>
+                        </a>
+
+                        <!-- Card 3 -->
+                        <a href="#" class="group flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-xl bg-[#E3E8D5] text-[#2c3321] flex items-center justify-center flex-shrink-0 group-hover:bg-[#d5dbc3] transition-colors">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900 mb-1">Turn visitors into customers</h4>
+                                <p class="text-[13px] text-gray-500 leading-relaxed pr-4">Capture leads, take bookings and turn page visits into enquiries you can actually follow up.</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 flex justify-end border-t border-gray-100 pt-6">
+                        <a href="#" class="bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium px-5 py-2.5 rounded-full text-sm transition-colors flex items-center gap-2">
+                            See all use cases <span>&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEÇÃO 1: Azul -->
+    <section class="bg-blue-linktree min-h-screen flex items-center py-20 px-6 md:px-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 w-full">
+            
+            <!-- Elemento Visual Animado (Simulando o GIF) -->
+            <div class="w-full md:w-1/2 relative h-[500px] flex justify-center items-center">
+                <!-- Celular central -->
+                <div class="absolute w-64 h-[450px] bg-gradient-to-br from-amber-600 to-amber-900 rounded-[2.5rem] border-8 border-yellow-800/30 shadow-2xl float-slow flex flex-col items-center pt-8 px-4 z-10">
+                    <div class="w-20 h-20 rounded-full bg-white/20 mb-4"></div>
+                    <div class="w-full h-10 rounded-full bg-white/20 mb-3"></div>
+                    <div class="w-full h-10 rounded-full bg-white/20 mb-3"></div>
+                </div>
+                <!-- Ícones flutuando ao redor -->
+                <div class="absolute top-20 left-10 md:left-20 w-16 h-16 bg-green-400 rounded-2xl float-fast shadow-xl z-20 flex items-center justify-center text-white font-bold text-2xl">Spotify</div>
+                <div class="absolute bottom-32 left-16 md:left-28 w-20 h-20 bg-pink-500 rounded-full float-delayed shadow-xl z-20 flex items-center justify-center text-white font-bold text-xl">Insta</div>
+                <div class="absolute top-1/2 right-10 md:right-24 w-12 h-12 bg-yellow-400 rounded-full float-medium shadow-xl z-20"></div>
+                <div class="absolute bottom-20 right-20 w-16 h-16 bg-black rounded-2xl float-slow shadow-xl z-20 flex items-center justify-center text-white font-bold">X</div>
+            </div>
+
+            <!-- Conteúdo em Texto -->
+            <div class="w-full md:w-1/2 text-left">
+                <h1 class="text-5xl md:text-7xl font-black text-yellow-linktree tracking-tight leading-[1.1] mb-6">
+                    Eu sou Gabriel Naldi, esse site vai ser uma extensão de mim
+                </h1>
+                <p class="text-white text-lg md:text-xl mb-8 font-medium leading-relaxed max-w-lg">
+                    Esse site tem como objetivo guardar meus projetos já realizados e planos para o meus futuros projetos
+                </p>
+                <button class="bg-yellow-linktree text-black font-bold py-4 px-8 rounded-full text-lg hover:scale-105 transition-transform duration-300">
+                    Esse botão não funciona
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SEÇÃO 2: Vermelho Escuro -->
+    <section class="bg-red-linktree min-h-screen flex items-center py-20 px-6 md:px-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 w-full">
+            
+            <!-- Conteúdo em Texto -->
+            <div class="w-full md:w-1/2 text-left">
+                <h2 class="text-5xl md:text-7xl font-black text-pink-linktree tracking-tight leading-[1.1] mb-6">
+                    Como pode perceber, esse site não tem nada
+                </h2>
+                <p class="text-white text-lg md:text-xl mb-8 font-medium leading-relaxed max-w-lg">
+                    Ao longo do trajeto você vai perceber que os textos e elementos são totalmente genéricos
+                </p>
+                <button class="bg-white text-black font-bold py-4 px-8 rounded-full text-lg hover:scale-105 transition-transform duration-300">
+                    Esse será um projeto muito legal
+                </button>
+            </div>
+
+            <!-- Elemento Visual Animado (Simulando o GIF) -->
+            <div class="w-full md:w-1/2 relative h-[500px] flex justify-center items-center">
+                <!-- Cards empilhados flutuando -->
+                <div class="absolute w-64 h-80 bg-blue-500 rounded-3xl shadow-2xl transform translate-x-12 -translate-y-12 float-medium z-10 flex flex-col p-4 opacity-90"></div>
+                <div class="absolute w-64 h-80 bg-purple-500 rounded-3xl shadow-2xl transform translate-x-6 -translate-y-6 float-delayed z-20 flex flex-col p-4 opacity-95"></div>
+                <div class="absolute w-64 h-80 bg-pink-500 rounded-3xl shadow-2xl float-slow z-30 flex flex-col p-4"></div>
+                <div class="absolute w-64 h-80 bg-gray-600 rounded-3xl shadow-2xl transform -translate-x-6 translate-y-6 float-fast z-40 flex flex-col p-6 items-center pt-10">
+                    <div class="w-16 h-16 rounded-full bg-yellow-400 mb-4 border-4 border-gray-600"></div>
+                    <div class="w-full h-6 rounded bg-gray-400 mb-2"></div>
+                    <div class="w-3/4 h-6 rounded bg-gray-400 mb-6"></div>
+                    <div class="w-full h-12 rounded-full bg-white flex items-center justify-center font-bold text-gray-800 shadow-sm">@everywhere</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SEÇÃO 3: Verde/Bege Claro -->
+    <section class="bg-green-linktree min-h-screen flex items-center py-20 px-6 md:px-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 w-full">
+            
+            <!-- Elemento Visual Animado Bento Grid (Simulando o GIF) -->
+            <div class="w-full md:w-1/2 flex justify-center items-center">
+                <div class="grid grid-cols-2 gap-4 w-full max-w-md pulse-soft">
+                    <!-- Bloco 1 (Estatísticas Verde) -->
+                    <div class="col-span-2 bg-[#708051] rounded-3xl p-6 h-40 shadow-xl flex items-center justify-between text-white">
+                        <div class="h-16 w-32 border-b-2 border-white/30 flex items-end overflow-hidden gap-1">
+                            <div class="w-2 bg-yellow-300 h-full"></div>
+                            <div class="w-2 bg-yellow-300 h-2/3"></div>
+                            <div class="w-2 bg-yellow-300 h-4/5"></div>
+                            <div class="w-2 bg-yellow-300 h-1/2"></div>
+                            <div class="w-2 bg-yellow-300 h-full"></div>
+                            <div class="w-2 bg-yellow-300 h-1/3"></div>
+                            <div class="w-2 bg-yellow-300 h-3/4"></div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-4xl font-black text-yellow-300">43,500</div>
+                            <div class="text-sm opacity-80 mt-1">Cliques</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bloco 2 (Fone Rosa) -->
+                    <div class="bg-[#DFBEFA] rounded-3xl p-6 h-32 shadow-xl flex flex-col items-center justify-center text-purple-900">
+                        <div class="text-3xl mb-1 font-black text-[#111827]">643</div>
+                        <div class="text-xs font-bold uppercase tracking-wider">Plays</div>
+                    </div>
+                    
+                    <!-- Bloco 3 (Vendas Roxo) -->
+                    <div class="bg-[#D900FF] rounded-3xl p-6 h-32 shadow-xl flex flex-col items-center justify-center text-white">
+                        <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mb-2 font-black">$</div>
+                        <div class="text-2xl font-black">$2,362</div>
+                    </div>
+
+                    <!-- Bloco 4 (Mundo Azul) -->
+                    <div class="col-span-2 bg-[#001D9A] rounded-3xl p-6 h-32 shadow-xl flex items-center justify-between text-white">
+                        <div class="w-20 h-20 rounded-full bg-blue-400 relative overflow-hidden flex items-center justify-center">
+                            <!-- Continentes falsos -->
+                            <div class="absolute w-12 h-8 bg-green-400 rounded-full top-2 left-1 opacity-80"></div>
+                            <div class="absolute w-10 h-10 bg-green-400 rounded-full bottom-1 right-2 opacity-80"></div>
+                            <div class="w-3 h-3 bg-pink-500 rounded-full absolute z-10 animate-ping"></div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm opacity-80 mb-1">New York, USA</div>
+                            <div class="text-3xl font-black">960</div>
+                            <div class="text-sm opacity-80">Visitas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conteúdo em Texto -->
+            <div class="w-full md:w-1/2 text-left md:pl-8">
+                <h2 class="text-5xl md:text-6xl font-black text-dark-linktree tracking-tight leading-[1.1] mb-6">
+                    Analise sua audiência e mantenha-os engajados
+                </h2>
+                <p class="text-gray-800 text-lg md:text-xl mb-8 font-medium leading-relaxed max-w-lg">
+                    Acompanhe seu engajamento ao longo do tempo, monitore receitas e descubra o que está convertendo seu público. Faça atualizações em tempo real.
+                </p>
+                <button class="bg-purple-linktree text-black font-bold py-4 px-8 rounded-full text-lg hover:scale-105 transition-transform duration-300">
+                    Explorar análises
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lógica da Navbar (Scroll e Animação do Hover) -->
+    <script>
+        // 1. Lógica de Esconder/Mostrar a Navbar no Scroll
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('main-nav');
+
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            // Se rolar para baixo e passar de 50px, esconde. Se rolar para cima, mostra.
+            if (scrollTop > lastScrollTop && scrollTop > 50) {
+                navbar.style.transform = 'translateY(-150%)'; // Sobe a barra
+            } else {
+                navbar.style.transform = 'translateY(0)'; // Desce a barra
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // 2. Lógica da Pílula Cinza Deslizante no Menu
+        const navMenu = document.getElementById('nav-menu');
+        const indicator = document.getElementById('nav-indicator');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        // Define o primeiro item (Solutions) como foco inicial, igual na imagem
+        const activeItem = navItems[0];
+
+        const updateIndicator = (el) => {
+            indicator.style.width = `${el.offsetWidth}px`;
+            indicator.style.transform = `translateX(${el.offsetLeft}px)`;
+            indicator.style.opacity = '1';
+        };
+
+        // Inicia o indicador na posição do primeiro item assim que a fonte carrega
+        window.addEventListener('load', () => {
+            setTimeout(() => updateIndicator(activeItem), 100);
+        });
+
+        // Move o indicador ao passar o mouse em qualquer item
+        navItems.forEach(item => {
+            item.addEventListener('mouseenter', (e) => {
+                updateIndicator(e.target);
+            });
+        });
+
+        // Volta o indicador para o item inicial ao tirar o mouse do menu
+        navMenu.addEventListener('mouseleave', () => {
+            updateIndicator(activeItem);
+        });
+
+        // 3. Lógica do Mega Menu (Dropdown Solutions)
+        const solutionsLink = document.getElementById('solutions-link');
+        const megaMenu = document.getElementById('mega-menu');
+        let menuTimeout;
+
+        const openMenu = () => {
+            clearTimeout(menuTimeout);
+            // Remove as classes que escondem o menu e adiciona as que mostram
+            megaMenu.classList.remove('opacity-0', 'invisible', '-translate-y-4', 'pointer-events-none');
+            megaMenu.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        };
+
+        const closeMenu = () => {
+            // Adiciona um pequeno delay para que o menu não pisque ao mover o mouse
+            menuTimeout = setTimeout(() => {
+                megaMenu.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+                megaMenu.classList.add('opacity-0', 'invisible', '-translate-y-4', 'pointer-events-none');
+            }, 100);
+        };
+
+        // Ativa tanto passando o mouse no link quanto mantendo o mouse dentro do menu
+        solutionsLink.addEventListener('mouseenter', openMenu);
+        solutionsLink.addEventListener('mouseleave', closeMenu);
+        megaMenu.addEventListener('mouseenter', openMenu);
+        megaMenu.addEventListener('mouseleave', closeMenu);
+    </script>
+</body>
+</html>
