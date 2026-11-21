@@ -645,6 +645,136 @@
             }
         }
 
+        async function carregarArtigos() {
+            const query = `*[_type == "artigo"] | order(_createdAt desc) {
+                _id,
+                titulo,
+                motivacao,
+                tipoArquivo,
+                detalhes,
+                "arquivoUrl": arquivo.asset->url
+            }`;
+            
+            const itens = await fetchSanity(query);
+            
+            // Oculta os esqueletos
+            document.getElementById('artigos-loading').classList.add('hidden');
+            
+            if (itens && itens.length > 0) {
+                const grid = document.getElementById('artigos-grid');
+                grid.classList.remove('hidden');
+                
+                const template = document.getElementById('template-artigo').content;
+                const colunas = [
+                    document.getElementById('artigos-col-1'),
+                    document.getElementById('artigos-col-2')
+                ];
+                
+                itens.forEach((item, index) => {
+                    const clone = document.importNode(template, true);
+                    
+                    // Textos base
+                    clone.querySelector('.artigo-titulo').textContent = item.titulo || 'Sem Título';
+                    clone.querySelector('.artigo-motivacao').textContent = item.motivacao || '';
+                    
+                    // Configuração visual da Badge (Etiqueta de tipo)
+                    const badge = clone.querySelector('.artigo-badge');
+                    const tipo = (item.tipoArquivo || 'FILE').toUpperCase();
+                    badge.textContent = tipo;
+                    
+                    if (tipo === 'PDF') {
+                        badge.className = 'artigo-badge bg-red-100 border border-red-300 text-red-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase';
+                    } else if (tipo === 'DOCX') {
+                        badge.className = 'artigo-badge bg-blue-100 border border-blue-300 text-blue-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase';
+                    } else if (tipo === 'TXT') {
+                        badge.className = 'artigo-badge bg-green-100 border border-green-300 text-green-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase';
+                    }
+                    
+                    // Lista de detalhes (Expansível)
+                    const lista = clone.querySelector('.artigo-lista');
+                    const btnLerMais = clone.querySelector('.btn-ler-mais');
+                    if (item.detalhes && item.detalhes.length > 0) {
+                        item.detalhes.forEach(det => {
+                            const li = document.createElement('li');
+                            li.textContent = det;
+                            lista.appendChild(li);
+                        });
+                    } else {
+                        // Se não houver detalhes, esconde o botão "Ler mais"
+                        btnLerMais.classList.add('hidden');
+                    }
+                    
+                    // Link de Download
+                    const link = clone.querySelector('.artigo-link');
+                    if (item.arquivoUrl) {
+                        link.href = item.arquivoUrl;
+                    } else {
+                        // Desativa visualmente o botão se não houver arquivo anexado
+                        link.classList.add('opacity-50', 'cursor-not-allowed', 'bg-gray-800');
+                        link.textContent = 'Arquivo Indisponível';
+                        link.removeAttribute('href');
+                    }
+                    
+                    // Oculta extras para o sistema de "Ver Mais"
+                    if (index >= 2) {
+                        clone.querySelector('.artigo-card').classList.add('artigos-extra', 'hidden');
+                    }
+                    
+                    // Distribui nas 2 colunas
+                    colunas[index % 2].appendChild(clone);
+                });
+            }
+        }
+
+        async function carregarReflexoes() {
+            const query = `*[_type == "reflexao"] | order(_createdAt desc) {
+                _id,
+                dataHora,
+                corTag,
+                texto
+            }`;
+            
+            const itens = await fetchSanity(query);
+            
+            // Oculta os esqueletos
+            document.getElementById('reflexoes-loading').classList.add('hidden');
+            
+            if (itens && itens.length > 0) {
+                const grid = document.getElementById('reflexoes-grid');
+                grid.classList.remove('hidden');
+                
+                const template = document.getElementById('template-reflexao').content;
+                
+                // Mapeia a seleção do Sanity para cores reais do Tailwind
+                const cores = {
+                    'roxo': 'bg-purple-500',
+                    'azul': 'bg-blue-500',
+                    'vermelho': 'bg-red-500',
+                    'verde': 'bg-green-500',
+                    'amarelo': 'bg-yellow-500'
+                };
+                
+                itens.forEach((item, index) => {
+                    const clone = document.importNode(template, true);
+                    
+                    clone.querySelector('.reflexao-data').textContent = item.dataHora || '';
+                    clone.querySelector('.reflexao-texto').textContent = item.texto || '';
+                    
+                    // Aplica a cor na bolinha piscante
+                    const dot = clone.querySelector('.reflexao-dot');
+                    const corClasse = cores[item.corTag?.toLowerCase()] || 'bg-gray-400';
+                    dot.className = `reflexao-dot w-3 h-3 rounded-full animate-pulse ${corClasse}`;
+                    
+                    // Oculta extras para o sistema de "Ver Mais"
+                    if (index >= 2) {
+                        clone.querySelector('.reflexao-card').classList.add('reflexoes-extra', 'hidden');
+                    }
+                    
+                    grid.appendChild(clone);
+                });
+            }
+        }
+
         async function initSanity() {
             if (!SANITY_PROJECT_ID || SANITY_PROJECT_ID === 'COLOQUE_SEU_PROJECT_ID_AQUI') {
                 console.warn("⚠️ O Project ID do Sanity não foi configurado no HTML.");
@@ -652,7 +782,8 @@
             }
             
             await carregarGaleria();
-            // carregarArtigos() e carregarReflexoes() virão no próximo passo!
+            await carregarArtigos();
+            await carregarReflexoes();
         }
 
         // Dá a partida no motor assim que a página carrega
