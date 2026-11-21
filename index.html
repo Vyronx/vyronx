@@ -240,222 +240,47 @@
                 <p class="text-gray-600 text-lg max-w-2xl mx-auto font-medium">Textos, pesquisas e documentações que escrevi. Entenda o contexto de cada um e faça o download.</p>
             </div>
 
-            <!-- Grid em Colunas Físicas (Masonry Intercalado) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                
-                <!-- COLUNA ESQUERDA (Ímpares) -->
+            <!-- Skeletons de Carregamento (Exibidos enquanto o JS busca os dados) -->
+            <div id="artigos-loading" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start w-full">
                 <div class="flex flex-col gap-8">
-                    <!-- Card de Artigo 1 -->
-                    <div class="bg-white rounded-[2.5rem] p-8 md:p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="bg-red-100 border border-red-300 text-red-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">PDF</span>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">Design de Interfaces em 2026</h3>
-                        </div>
-                        <div class="mb-8">
-                            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
-                            <p class="text-gray-700 leading-relaxed font-medium">
-                                Escrevi este artigo acadêmico ao perceber como as interfaces mudaram após a popularização das IAs. O objetivo era documentar como a experiência do usuário se adaptou a fluxos mais conversacionais.
-                            </p>
-                            <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.innerText = this.innerText === 'Ler mais ↓' ? 'Ler menos ↑' : 'Ler mais ↓';" class="mt-4 bg-gray-100/50 hover:bg-gray-200 text-gray-600 font-semibold py-2 px-4 rounded-xl text-sm transition-colors w-full text-left border border-gray-200">Ler mais ↓</button>
-                            <div class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                                <h5 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2">Sumário do Artigo</h5>
-                                <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside ml-2">
-                                    <li>A era do comando vs. diálogo</li>
-                                    <li>Fim dos menus estáticos</li>
-                                    <li>A interface como agente ativo</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="#" class="inline-flex items-center justify-center w-full bg-black text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-800 transition-colors">
-                            Baixar Arquivo
-                        </a>
-                    </div>
-
-                    <!-- Card de Artigo 3 -->
-                    <div class="artigos-extra hidden bg-white rounded-[2.5rem] p-8 md:p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="bg-red-100 border border-red-300 text-red-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">PDF</span>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">A Psicologia das Cores no UX</h3>
-                        </div>
-                        <div class="mb-8">
-                            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
-                            <p class="text-gray-700 leading-relaxed font-medium">
-                                Artigo fictício criado para preencher espaço. Explora como tons quentes e frios afetam a conversão de botões em aplicativos mobile.
-                            </p>
-                            <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.innerText = this.innerText === 'Ler mais ↓' ? 'Ler menos ↑' : 'Ler mais ↓';" class="mt-4 bg-gray-100/50 hover:bg-gray-200 text-gray-600 font-semibold py-2 px-4 rounded-xl text-sm transition-colors w-full text-left border border-gray-200">Ler mais ↓</button>
-                            <div class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                                <h5 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2">Sumário do Artigo</h5>
-                                <ul class="text-sm text-gray-600 space-y-1 list-disc list-inside ml-2">
-                                    <li>Vermelho vs. Verde nos CTAs</li>
-                                    <li>Fadiga visual em tons frios</li>
-                                    <li>Estudo de caso prático (Testes A/B)</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="#" class="inline-flex items-center justify-center w-full bg-black text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-800 transition-colors">Baixar Arquivo</a>
-                    </div>
-
-                    <!-- Card de Artigo 5 -->
-                    <div class="artigos-extra hidden bg-white rounded-[2.5rem] p-8 md:p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="bg-green-100 border border-green-300 text-green-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">TXT</span>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">Acessibilidade como Padrão</h3>
-                        </div>
-                        <div class="mb-8">
-                            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
-                            <p class="text-gray-700 leading-relaxed font-medium">
-                                Ensaio sobre o impacto do leitor de tela e do alto contraste no desenvolvimento front-end contemporâneo. Espaço reservado.
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center justify-center w-full bg-black text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-800 transition-colors">Baixar Arquivo</a>
-                    </div>
-
-                    <!-- Card de Artigo 7 -->
-                    <div class="artigos-extra hidden bg-white rounded-[2.5rem] p-8 md:p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="bg-blue-100 border border-blue-300 text-blue-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">DOCX</span>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">Micro-interações</h3>
-                        </div>
-                        <div class="mb-8">
-                            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
-                            <p class="text-gray-700 leading-relaxed font-medium">
-                                Como pequenas animações de hover e loaders customizados podem aumentar drasticamente a percepção de valor de um site.
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center justify-center w-full bg-black text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-800 transition-colors">Baixar Arquivo</a>
-                    </div>
-
-                    <!-- Card de Artigo 9 -->
-                    <div class="artigos-extra hidden bg-white rounded-[2.5rem] p-8 md:p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="bg-blue-100 border border-blue-300 text-blue-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">DOCX</span>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">Interfaces por Voz</h3>
-                        </div>
-                        <div class="mb-8">
-                            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
-                            <p class="text-gray-700 leading-relaxed font-medium">
-                                Um olhar sobre como desenhar fluxos de usuário quando não existe uma tela, focando em comandos de voz e respostas auditivas.
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center justify-center w-full bg-black text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-800 transition-colors">Baixar Arquivo</a>
-                    </div>
-
-                    <!-- Card de Artigo 11 -->
-                    <div class="artigos-extra hidden bg-white rounded-[2.5rem] p-8 md:p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="bg-green-100 border border-green-300 text-green-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">TXT</span>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">Design System Escalável</h3>
-                        </div>
-                        <div class="mb-8">
-                            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
-                            <p class="text-gray-700 leading-relaxed font-medium">
-                                Princípios fundamentais para criar um sistema de design que possa crescer junto com a startup sem virar uma bagunça de variáveis.
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center justify-center w-full bg-black text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-800 transition-colors">Baixar Arquivo</a>
-                    </div>
+                    <div class="bg-gray-300 rounded-[2.5rem] h-64 animate-pulse w-full"></div>
+                    <div class="bg-gray-300 rounded-[2.5rem] h-80 animate-pulse w-full"></div>
                 </div>
-
-                <!-- COLUNA DIREITA (Pares) -->
                 <div class="flex flex-col gap-8">
-                    <!-- Card de Artigo 2 -->
-                    <div class="bg-white rounded-[2.5rem] p-8 md:p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="bg-blue-100 border border-blue-300 text-blue-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">DOCX</span>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">Rascunho: Projeto Vyronx</h3>
-                        </div>
-                        <div class="mb-8">
-                            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
-                            <p class="text-gray-700 leading-relaxed font-medium">
-                                Antes de escrever a primeira linha de código deste site, eu precisei organizar minhas ideias. Este documento contém o brainstorming original, paleta de cores e referências do Linktree.
-                            </p>
-                            <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.innerText = this.innerText === 'Ler mais ↓' ? 'Ler menos ↑' : 'Ler mais ↓';" class="mt-4 bg-gray-100/50 hover:bg-gray-200 text-gray-600 font-semibold py-2 px-4 rounded-xl text-sm transition-colors w-full text-left border border-gray-200">Ler mais ↓</button>
-                            <div class="hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                                <h5 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2">Detalhes Extras</h5>
-                                <p class="text-sm text-gray-600">Inclui mapas mentais rabiscados à mão, testes de fontes, hex codes descartados (como um tema neon) e wireframes em baixa fidelidade.</p>
-                            </div>
-                        </div>
-                        <a href="#" class="inline-flex items-center justify-center w-full bg-black text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-800 transition-colors">
-                            Baixar Arquivo
-                        </a>
-                    </div>
-
-                    <!-- Card de Artigo 4 -->
-                    <div class="artigos-extra hidden bg-white rounded-[2.5rem] p-8 md:p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="bg-blue-100 border border-blue-300 text-blue-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">DOCX</span>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">O Fim dos Botões Quadrados</h3>
-                        </div>
-                        <div class="mb-8">
-                            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
-                            <p class="text-gray-700 leading-relaxed font-medium">
-                                Texto ilustrativo sobre a evolução do web design moderno, onde bordas arredondadas e formas orgânicas tomaram o lugar do design rígido.
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center justify-center w-full bg-black text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-800 transition-colors">Baixar Arquivo</a>
-                    </div>
-
-                    <!-- Card de Artigo 6 -->
-                    <div class="artigos-extra hidden bg-white rounded-[2.5rem] p-8 md:p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="bg-red-100 border border-red-300 text-red-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">PDF</span>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">Tipografia Dinâmica na Web</h3>
-                        </div>
-                        <div class="mb-8">
-                            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
-                            <p class="text-gray-700 leading-relaxed font-medium">
-                                Análise técnica das unidades fluidas em CSS e como garantir que o texto seja legível em qualquer dispositivo sem breakpoints absurdos.
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center justify-center w-full bg-black text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-800 transition-colors">Baixar Arquivo</a>
-                    </div>
-
-                    <!-- Card de Artigo 8 -->
-                    <div class="artigos-extra hidden bg-white rounded-[2.5rem] p-8 md:p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="bg-red-100 border border-red-300 text-red-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">PDF</span>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">O Impacto do Dark Mode</h3>
-                        </div>
-                        <div class="mb-8">
-                            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
-                            <p class="text-gray-700 leading-relaxed font-medium">
-                                Este texto debate se o modo escuro é realmente melhor para a leitura prolongada ou se é apenas uma tendência estética passageira.
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center justify-center w-full bg-black text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-800 transition-colors">Baixar Arquivo</a>
-                    </div>
-
-                    <!-- Card de Artigo 10 -->
-                    <div class="artigos-extra hidden bg-white rounded-[2.5rem] p-8 md:p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="bg-red-100 border border-red-300 text-red-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">PDF</span>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">Minimalismo vs. Brutalismo</h3>
-                        </div>
-                        <div class="mb-8">
-                            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
-                            <p class="text-gray-700 leading-relaxed font-medium">
-                                Artigo que contrapõe a estética clean da Apple com o movimento neo-brutalista (que este site adotou em seus componentes).
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center justify-center w-full bg-black text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-800 transition-colors">Baixar Arquivo</a>
-                    </div>
-
-                    <!-- Card de Artigo 12 -->
-                    <div class="artigos-extra hidden bg-white rounded-[2.5rem] p-8 md:p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-6">
-                            <span class="bg-red-100 border border-red-300 text-red-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">PDF</span>
-                            <h3 class="text-2xl md:text-3xl font-black text-gray-900 tracking-tight">O Futuro do CSS</h3>
-                        </div>
-                        <div class="mb-8">
-                            <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
-                            <p class="text-gray-700 leading-relaxed font-medium">
-                                Um estudo rápido sobre as novas features do CSS (como :has(), container queries e aninhamento nativo) e o fim do SCSS.
-                            </p>
-                        </div>
-                        <a href="#" class="inline-flex items-center justify-center w-full bg-black text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-800 transition-colors">Baixar Arquivo</a>
-                    </div>
+                    <div class="bg-gray-300 rounded-[2.5rem] h-80 animate-pulse w-full"></div>
+                    <div class="bg-gray-300 rounded-[2.5rem] h-64 animate-pulse w-full"></div>
                 </div>
             </div>
+
+            <!-- Grid em Colunas Físicas (Masonry Intercalado) - Oculto até o JS preencher -->
+            <div id="artigos-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start hidden">
+                <!-- COLUNA ESQUERDA (Ímpares) -->
+                <div id="artigos-col-1" class="flex flex-col gap-8"></div>
+                <!-- COLUNA DIREITA (Pares) -->
+                <div id="artigos-col-2" class="flex flex-col gap-8"></div>
+            </div>
+
+            <!-- TEMPLATE: Molde do Card de Artigo -->
+            <template id="template-artigo">
+                <div class="artigo-card bg-white rounded-[2.5rem] p-8 md:p-10 border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="artigo-badge bg-gray-100 border border-gray-300 text-gray-600 font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">TIPO</span>
+                        <h3 class="artigo-titulo text-2xl md:text-3xl font-black text-gray-900 tracking-tight">Título do Artigo</h3>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
+                        <p class="artigo-motivacao text-gray-700 leading-relaxed font-medium">Texto de motivação vai aqui...</p>
+                        <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.innerText = this.innerText === 'Ler mais ↓' ? 'Ler menos ↑' : 'Ler mais ↓';" class="btn-ler-mais mt-4 bg-gray-100/50 hover:bg-gray-200 text-gray-600 font-semibold py-2 px-4 rounded-xl text-sm transition-colors w-full text-left border border-gray-200">Ler mais ↓</button>
+                        <div class="artigo-expandido hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                            <h5 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2">Detalhes</h5>
+                            <ul class="artigo-lista text-sm text-gray-600 space-y-1 list-disc list-inside ml-2"></ul>
+                        </div>
+                    </div>
+                    <a href="#" target="_blank" class="artigo-link inline-flex items-center justify-center w-full bg-black text-white font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-800 transition-colors">
+                        Baixar Arquivo
+                    </a>
+                </div>
+            </template>
             
             <!-- Botão de Ver Mais -->
             <div id="artigos-btn-container" class="mt-12 text-center">
@@ -483,96 +308,37 @@
                 <p class="text-gray-400 text-lg max-w-2xl mx-auto font-medium">Fotos, desenhos e experimentações visuais. Um pouco do que eu crio quando não estou codando.</p>
             </div>
 
-            <!-- Grid em Colunas Físicas (Masonry Intercalado) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                
-                <!-- COLUNA 1 -->
-                <div class="flex flex-col gap-8">
-                    <!-- Post 1 -->
-                    <div class="bg-white rounded-[2rem] overflow-hidden border-2 border-transparent hover:border-purple-400 transition-colors duration-300">
-                        <div class="aspect-square bg-gray-200 w-full flex items-center justify-center relative">
-                            <span class="text-gray-400 font-bold text-lg">[Sua Arte Aqui]</span>
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-gray-800 leading-relaxed font-medium">
-                                <span class="font-bold mr-2">gabrielnaldi</span>
-                                Um dos meus primeiros desenhos digitais. A motivação foi testar uma nova paleta de cores vibrantes inspirada na estética Cyberpunk. Deu trabalho, mas valeu a pena! 🎨✨
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Post 4 -->
-                    <div class="galeria-extra hidden bg-white rounded-[2rem] overflow-hidden border-2 border-transparent hover:border-purple-400 transition-colors duration-300">
-                        <div class="aspect-square bg-gray-200 w-full flex items-center justify-center relative">
-                            <span class="text-gray-400 font-bold text-lg">[Foto Extra 1]</span>
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-gray-800 leading-relaxed font-medium">
-                                <span class="font-bold mr-2">gabrielnaldi</span>
-                                Testando novas texturas e iluminação volumétrica no Blender. O render demorou 4 horas, mas o resultado compensou.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- COLUNA 2 -->
-                <div class="flex flex-col gap-8">
-                    <!-- Post 2 -->
-                    <div class="bg-white rounded-[2rem] overflow-hidden border-2 border-transparent hover:border-purple-400 transition-colors duration-300">
-                        <div class="aspect-square bg-gray-200 w-full flex items-center justify-center relative">
-                            <span class="text-gray-400 font-bold text-lg">[Sua Foto Aqui]</span>
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-gray-800 leading-relaxed font-medium">
-                                <span class="font-bold mr-2">gabrielnaldi</span>
-                                Registro do meu setup antigo. É engraçado olhar para trás e ver com quão pouco a gente começa. A iluminação estava perfeita nesse dia.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Post 5 -->
-                    <div class="galeria-extra hidden bg-white rounded-[2rem] overflow-hidden border-2 border-transparent hover:border-purple-400 transition-colors duration-300">
-                        <div class="aspect-square bg-gray-200 w-full flex items-center justify-center relative">
-                            <span class="text-gray-400 font-bold text-lg">[Foto Extra 2]</span>
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-gray-800 leading-relaxed font-medium">
-                                <span class="font-bold mr-2">gabrielnaldi</span>
-                                Sexta-feira à noite organizando o Notion. A paz de espírito que um workspace limpo traz é indescritível.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- COLUNA 3 -->
-                <div class="flex flex-col gap-8">
-                    <!-- Post 3 -->
-                    <div class="bg-white rounded-[2rem] overflow-hidden border-2 border-transparent hover:border-purple-400 transition-colors duration-300">
-                        <div class="aspect-square bg-gray-200 w-full flex items-center justify-center relative">
-                            <span class="text-gray-400 font-bold text-lg">[Seu Sketch Aqui]</span>
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-gray-800 leading-relaxed font-medium">
-                                <span class="font-bold mr-2">gabrielnaldi</span>
-                                Rascunho de interface feito à mão. Às vezes o papel e a caneta resolvem problemas de UX muito mais rápido do que ir direto para o Figma. 📝
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Post 6 -->
-                    <div class="galeria-extra hidden bg-white rounded-[2rem] overflow-hidden border-2 border-transparent hover:border-purple-400 transition-colors duration-300">
-                        <div class="aspect-square bg-gray-200 w-full flex items-center justify-center relative">
-                            <span class="text-gray-400 font-bold text-lg">[Foto Extra 3]</span>
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-gray-800 leading-relaxed font-medium">
-                                <span class="font-bold mr-2">gabrielnaldi</span>
-                                Mais um wireframe rabiscado no guardanapo que acabou virando um projeto real. Nunca subestime ideias de padaria. ☕
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <!-- Skeletons de Carregamento (Exibidos enquanto o JS busca os dados) -->
+            <div id="galeria-loading" class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start w-full">
+                <div class="bg-gray-800 rounded-[2rem] h-80 animate-pulse w-full"></div>
+                <div class="bg-gray-800 rounded-[2rem] h-64 animate-pulse w-full"></div>
+                <div class="bg-gray-800 rounded-[2rem] h-96 animate-pulse w-full"></div>
             </div>
+
+            <!-- Grid em Colunas Físicas (Masonry Intercalado) - Oculto até o JS preencher -->
+            <div id="galeria-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start hidden">
+                <!-- COLUNA 1 -->
+                <div id="galeria-col-1" class="flex flex-col gap-8"></div>
+                <!-- COLUNA 2 -->
+                <div id="galeria-col-2" class="flex flex-col gap-8"></div>
+                <!-- COLUNA 3 -->
+                <div id="galeria-col-3" class="flex flex-col gap-8"></div>
+            </div>
+
+            <!-- TEMPLATE: Molde do Card de Galeria -->
+            <template id="template-galeria">
+                <div class="galeria-card bg-white rounded-[2rem] overflow-hidden border-2 border-transparent hover:border-purple-400 transition-colors duration-300">
+                    <div class="galeria-img-container aspect-square bg-gray-200 w-full flex items-center justify-center relative overflow-hidden">
+                        <!-- Imagem vai aqui -->
+                    </div>
+                    <div class="p-6">
+                        <p class="text-sm text-gray-800 leading-relaxed font-medium">
+                            <span class="font-bold mr-2">gabrielnaldi</span>
+                            <span class="galeria-legenda">Legenda...</span>
+                        </p>
+                    </div>
+                </div>
+            </template>
             
             <!-- Botão de Ver Mais -->
             <div id="galeria-btn-container" class="mt-12 text-center">
@@ -599,41 +365,28 @@
                 <p class="text-purple-900 text-lg max-w-2xl mx-auto font-medium">Notas rápidas, pensamentos não estruturados e algumas epifanias sobre a vida e o cotidiano.</p>
             </div>
 
-            <!-- Feed de Notas -->
-            <div class="space-y-8">
-                <!-- Nota 1 -->
-                <div class="bg-[#111827] rounded-[2rem] p-8 md:p-10 border-2 border-transparent hover:border-[#D2E823] hover:-translate-y-2 transition-all duration-300 shadow-xl">
-                    <div class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4 flex items-center gap-3">
-                        <span class="w-3 h-3 rounded-full bg-[#D2E823] animate-pulse"></span> Hoje, 15:30
-                    </div>
-                    <p class="text-white text-lg leading-relaxed font-medium">
-                        A ilusão de que a vida nos traz afeto e a sensação de pertencimento em meio ao caos da vida cotidiana é evidenciada à medida que transcendemos a vida intimista e passamos a elucubrar sobre a vida alheia, sobretudo sobre a possibilidade de apreciar um pão com uma camada apetecível de manteiga.
-                    </p>
-                </div>
-                
-                <!-- Nota 2 -->
-                <div class="bg-[#111827] rounded-[2rem] p-8 md:p-10 border-2 border-transparent hover:border-[#2D5BFF] hover:-translate-y-2 transition-all duration-300 shadow-xl">
-                    <div class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4 flex items-center gap-3">
-                        <span class="w-3 h-3 rounded-full bg-[#2D5BFF]"></span> Ontem, 09:15
-                    </div>
-                    <p class="text-white text-lg leading-relaxed font-medium">
-                        O dia hoje estava chuvoso, frio, e isso é surpreendentemente bom. Existe uma quietude na chuva que obriga a mente a desacelerar o ritmo.
-                    </p>
-                </div>
+            <!-- Skeletons de Carregamento (Exibidos enquanto o JS busca os dados) -->
+            <div id="reflexoes-loading" class="space-y-8 w-full">
+                <div class="bg-[#1F2937] rounded-[2rem] h-40 animate-pulse w-full"></div>
+                <div class="bg-[#1F2937] rounded-[2rem] h-32 animate-pulse w-full"></div>
             </div>
 
-            <!-- Notas Expandidas -->
-            <div id="reflexoes-expanded" class="hidden space-y-8 mt-8">
-                <!-- Nota 3 -->
-                <div class="bg-[#111827] rounded-[2rem] p-8 md:p-10 border-2 border-transparent hover:border-[#780016] hover:-translate-y-2 transition-all duration-300 shadow-xl">
+            <!-- Container das Notas - Oculto até o JS preencher -->
+            <div id="reflexoes-grid" class="space-y-8 hidden">
+                <!-- Notas injetadas aqui -->
+            </div>
+
+            <!-- TEMPLATE: Molde de Reflexão -->
+            <template id="template-reflexao">
+                <div class="reflexao-card bg-[#111827] rounded-[2rem] p-8 md:p-10 border-2 border-transparent hover:-translate-y-2 transition-all duration-300 shadow-xl">
                     <div class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4 flex items-center gap-3">
-                        <span class="w-3 h-3 rounded-full bg-[#780016]"></span> Semana Passada
+                        <span class="reflexao-dot w-3 h-3 rounded-full animate-pulse"></span> <span class="reflexao-data">Data</span>
                     </div>
-                    <p class="text-white text-lg leading-relaxed font-medium">
-                        Quanto mais ferramentas criamos para poupar tempo, menos tempo parece que temos. O paradoxo da produtividade moderna.
+                    <p class="reflexao-texto text-white text-lg leading-relaxed font-medium">
+                        Texto da reflexão...
                     </p>
                 </div>
-            </div>
+            </template>
             
             <div id="reflexoes-btn-container" class="mt-12 text-center">
                 <button onclick="expandSection('reflexoes')" class="bg-[#111827] text-white font-bold py-4 px-10 rounded-full text-lg shadow-xl hover:-translate-y-1 transition-transform">
@@ -823,6 +576,87 @@
         setupMegaMenu('artigos-link', 'artigos-mega-menu');
         setupMegaMenu('galeria-link', 'galeria-mega-menu');
         setupMegaMenu('reflexoes-link', 'reflexoes-mega-menu');
+
+        // ==========================================
+        // FASE 4: INTEGRAÇÃO COM SANITY CMS (Fetch)
+        // ==========================================
+        const SANITY_PROJECT_ID = '2ca6mefl';
+        const SANITY_DATASET = 'production';
+        
+        async function fetchSanity(query) {
+            const url = `https://${SANITY_PROJECT_ID}.api.sanity.io/v2023-05-03/data/query/${SANITY_DATASET}?query=${encodeURIComponent(query)}`;
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data.result;
+            } catch (error) {
+                console.error("Erro ao conectar no Sanity:", error);
+                return [];
+            }
+        }
+
+        async function carregarGaleria() {
+            // GROQ: Busca as imagens da galeria e já resolve a URL final do arquivo
+            const query = `*[_type == "galeria"] | order(_createdAt desc) {
+                _id,
+                categoria,
+                legenda,
+                "imageUrl": imagem.asset->url
+            }`;
+            
+            const itens = await fetchSanity(query);
+            
+            // Oculta os esqueletos piscantes
+            document.getElementById('galeria-loading').classList.add('hidden');
+            
+            if (itens && itens.length > 0) {
+                const grid = document.getElementById('galeria-grid');
+                grid.classList.remove('hidden');
+                
+                const template = document.getElementById('template-galeria').content;
+                const colunas = [
+                    document.getElementById('galeria-col-1'),
+                    document.getElementById('galeria-col-2'),
+                    document.getElementById('galeria-col-3')
+                ];
+                
+                itens.forEach((item, index) => {
+                    const clone = document.importNode(template, true);
+                    
+                    // 1. Injeta a Imagem
+                    const imgContainer = clone.querySelector('.galeria-img-container');
+                    if (item.imageUrl) {
+                        imgContainer.innerHTML = `<img src="${item.imageUrl}" alt="${item.categoria || 'Arte'}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">`;
+                    }
+                    
+                    // 2. Injeta a Categoria e Legenda
+                    const legendaEl = clone.querySelector('.galeria-legenda');
+                    const catFormatada = item.categoria ? `<strong class="text-xs text-purple-600 uppercase tracking-widest block mb-1">-[${item.categoria}]-</strong>` : '';
+                    legendaEl.innerHTML = `${catFormatada}${item.legenda || ''}`;
+                    
+                    // 3. Esconde os itens extras para o botão "Ver Mais" funcionar
+                    if (index >= 3) {
+                        clone.querySelector('.galeria-card').classList.add('galeria-extra', 'hidden');
+                    }
+                    
+                    // 4. Joga o clone preenchido na coluna certa (efeito Pinterest/Masonry)
+                    colunas[index % 3].appendChild(clone);
+                });
+            }
+        }
+
+        async function initSanity() {
+            if (!SANITY_PROJECT_ID || SANITY_PROJECT_ID === 'COLOQUE_SEU_PROJECT_ID_AQUI') {
+                console.warn("⚠️ O Project ID do Sanity não foi configurado no HTML.");
+                return;
+            }
+            
+            await carregarGaleria();
+            // carregarArtigos() e carregarReflexoes() virão no próximo passo!
+        }
+
+        // Dá a partida no motor assim que a página carrega
+        window.addEventListener('DOMContentLoaded', initSanity);
 
         // Menu Hambúrguer Lógica
         let isMenuOpen = false;
