@@ -270,7 +270,7 @@
                     <div class="mb-8">
                         <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">A Motivação</h4>
                         <p class="artigo-motivacao text-gray-700 leading-relaxed font-medium">Texto de motivação vai aqui...</p>
-                        <button onclick="this.nextElementSibling.classList.toggle('hidden'); this.innerText = this.innerText === 'Ler mais ↓' ? 'Ler menos ↑' : 'Ler mais ↓';" class="btn-ler-mais mt-4 bg-gray-100/50 hover:bg-gray-200 text-gray-600 font-semibold py-2 px-4 rounded-xl text-sm transition-colors w-full text-left border border-gray-200">Ler mais ↓</button>
+                        <button class="btn-ler-mais mt-4 bg-gray-100/50 hover:bg-gray-200 text-gray-600 font-semibold py-2 px-4 rounded-xl text-sm transition-colors w-full text-left border border-gray-200">Ler mais ↓</button>
                         <div class="artigo-expandido hidden mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
                             <h5 class="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2">Detalhes</h5>
                             <ul class="artigo-lista text-sm text-gray-600 space-y-1 list-disc list-inside ml-2"></ul>
@@ -620,6 +620,12 @@
                     document.getElementById('galeria-col-3')
                 ];
                 
+                // Esconde o botão "Ver Mais" se não houver itens suficientes para expandir
+                if (itens.length <= 3) {
+                    const btnContainer = document.getElementById('galeria-btn-container');
+                    if (btnContainer) btnContainer.classList.add('hidden');
+                }
+                
                 itens.forEach((item, index) => {
                     const clone = document.importNode(template, true);
                     
@@ -651,7 +657,7 @@
                 titulo,
                 motivacao,
                 tipoArquivo,
-                detalhes,
+                conteudoExpandido,
                 "arquivoUrl": arquivo.asset->url
             }`;
             
@@ -670,6 +676,12 @@
                     document.getElementById('artigos-col-2')
                 ];
                 
+                // Esconde o botão "Ver Mais" se não houver itens extras
+                if (itens.length <= 2) {
+                    const btnContainer = document.getElementById('artigos-btn-container');
+                    if (btnContainer) btnContainer.classList.add('hidden');
+                }
+
                 itens.forEach((item, index) => {
                     const clone = document.importNode(template, true);
                     
@@ -693,12 +705,29 @@
                     // Lista de detalhes (Expansível)
                     const lista = clone.querySelector('.artigo-lista');
                     const btnLerMais = clone.querySelector('.btn-ler-mais');
-                    if (item.detalhes && item.detalhes.length > 0) {
-                        item.detalhes.forEach(det => {
-                            const li = document.createElement('li');
-                            li.textContent = det;
-                            lista.appendChild(li);
-                        });
+                    const areaExpandida = clone.querySelector('.artigo-expandido');
+                        
+                    // Lógica de clique anexada dinamicamente via JS (Seguro)
+                    btnLerMais.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        areaExpandida.classList.toggle('hidden');
+                        btnLerMais.innerText = areaExpandida.classList.contains('hidden') ? 'Ler mais ↓' : 'Ler menos ↑';
+                    });
+                        
+                    if (item.conteudoExpandido && item.conteudoExpandido.length > 0) {
+                        if (Array.isArray(item.conteudoExpandido)) {
+                            item.conteudoExpandido.forEach(det => {
+                                const li = document.createElement('li');
+                                li.textContent = det;
+                                lista.appendChild(li);
+                            });
+                        } else {
+                            // Se for um texto simples em vez de array
+                            const p = document.createElement('li');
+                            p.className = "list-none";
+                            p.textContent = item.conteudoExpandido;
+                            lista.appendChild(p);
+                        }
                     } else {
                         // Se não houver detalhes, esconde o botão "Ler mais"
                         btnLerMais.classList.add('hidden');
@@ -754,6 +783,12 @@
                     'amarelo': 'bg-yellow-500'
                 };
                 
+                // Esconde o botão "Ler Mais Pensamentos" se não houver extras
+                if (itens.length <= 2) {
+                    const btnContainer = document.getElementById('reflexoes-btn-container');
+                    if (btnContainer) btnContainer.classList.add('hidden');
+                }
+
                 itens.forEach((item, index) => {
                     const clone = document.importNode(template, true);
                     
